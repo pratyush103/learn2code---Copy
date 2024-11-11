@@ -1,0 +1,92 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Container, Form, Button, Card, Alert } from 'react-bootstrap';
+---
+
+<BaseLayout>
+  <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "80vh" }}>
+    <Card style={{ width: '400px' }} className="shadow-lg">
+      <Card.Body className="p-5">
+        <h2 class="text-center mb-4">Login</h2>
+        
+        <Form id="login-account">
+          <Form.Group className="mb-3">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control 
+              type="email" 
+              name="email"
+              placeholder="Enter email"
+              required
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>Password</Form.Label>
+            <Form.Control 
+              type="password"
+              name="password" 
+              placeholder="Password"
+              required
+            />
+          </Form.Group>
+
+          <div id="error-message" class="text-danger mb-3"></div>
+
+          <Button variant="primary" type="submit" className="w-100 mb-3">
+            Login
+          </Button>
+
+          <div class="text-center">
+            <small>
+              Don't have an account? <a href="/new">Register here</a>
+            </small>
+          </div>
+        </Form>
+      </Card.Body>
+    </Card>
+  </Container>
+
+  <script type="module">
+    const loginForm = document.querySelector("#login-account");
+    const errorMessage = document.querySelector("#error-message");
+    let isLoading = false;
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (isLoading) return;
+      
+      const submitButton = loginForm.querySelector('button[type="submit"]');
+      errorMessage.textContent = "";
+      isLoading = true;
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Loading...';
+
+      try {
+        const formData = new FormData(loginForm);
+        const response = await fetch("/api/login-account", {
+          method: "POST",
+          body: formData,
+        });
+
+        const result = await response.json();
+        
+        if (!result.success) {
+          throw new Error(result.error || 'Login failed');
+        }
+
+        // Redirect on success
+        window.location.href = "/dashboard";
+        
+      } catch (error) {
+        errorMessage.textContent = error.message;
+      } finally {
+        isLoading = false;
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Login';
+      }
+    });
+  </script>
+</BaseLayout>
+
+
+</style>

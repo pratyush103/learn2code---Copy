@@ -1,0 +1,161 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import { Card as BootstrapCard } from 'react-bootstrap';
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Home">
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <main style="">
+
+    <div style="background-image: url('/src/icons/Designer.jpeg'); background-size: cover; background-position: center; padding: 8rem; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken; margin-bottom: 50px">
+      <h1 class="text-gradient">Welcome to learn2Code</h1>
+      <p style="color: white; font-size: 1rem; font-weight: bold; margin-bottom:50px ">
+      This is a simple website to learn coding. We have a lot of resources to help you learn coding.
+      </p>
+      <button class="btn btn-dark">
+      Let's Learn Coding!
+      </button>
+    </div>
+    <hr>
+    <section>
+      <h2 style="padding: 25px">Why Choose Us?</h2>
+      <div class="features container">
+      <div class="feature">
+        <h3>Comprehensive Courses</h3>
+        <p>From Python to JavaScript, explore a variety of languages and frameworks designed for all skill levels.</p>
+      </div>
+      <div class="feature">
+        <h3>Interactive Learning</h3>
+        <p>Engage with hands-on projects and real-world scenarios to build your confidence and skills.</p>
+      </div>
+      <div class="feature">
+        <h3>Expert Instructors</h3>
+        <p>Learn from industry professionals with years of experience in software development and education.</p>
+      </div>
+      <div class="feature">
+        <h3>Flexible Learning</h3>
+        <p>Study at your own pace with 24/7 access to course materials, allowing you to fit learning into your busy schedule.</p>
+      </div>
+      </div>
+    </section>    
+    
+      <div class="code-editor">
+      <div>
+        <h2>Discover Our New Interactive Code Editor!</h2>
+        <p>We’re excited to introduce our new interactive code editor, designed to provide a seamless and powerful coding experience, just like VS Code.</p>
+        <ul>
+        <li>Customizable Interface</li>
+        <li>Integrated Debugging</li>
+        <li>Rich Language Support</li>
+        <li>Integrated with Lessons and Activities</li>
+        </ul>
+      </div>
+      <img src="src/icons/theme.jpg" alt="Code Editor Preview" style="width: 50%" />
+      </div>
+
+      <footer style="background-color: #333; color: white; padding: 20px; margin-top: 50px;">
+        <div style="display: flex; gap: 40px; margin-left: 20px;">
+          <div class="footer-links">
+        <h3>Explore</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="/db" style="color: white;">Database Tutorials</a></li>
+          <li><a href="/notes" style="color: white;">Coding Notes</a></li>
+          <li><a href="/terminal" style="color: white;">Terminal Commands</a></li>
+          <li><a href="/typespeed" style="color: white;">Typing Speed Test</a></li>
+        </ul>
+          </div>
+          <div class="footer-links">
+        <h3>Blogs</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="/blog/python" style="color: white;">Learn Python</a></li>
+          <li><a href="/blog/javascript" style="color: white;">Learn JavaScript</a></li>
+          <li><a href="/blog/html-css" style="color: white;">Learn HTML & CSS</a></li>
+          <li><a href="/blog/react" style="color: white;">Learn React</a></li>
+        </ul>
+          </div>
+        </div>
+        <p style="margin: 20px 0 0 20px;">&copy; 2023 learn2Code. All rights reserved.</p>
+      </footer>
+    </main>
+
+  <style>
+
+    h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+    }
+    .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    }
+    .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+    }
+    .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: lightgray;
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+    }
+    .instructions strong {
+    color: rgb(var(--accent-light));
+    }
+    .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+    }
+
+    .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: gray;
+    margin: 20px auto;
+    }
+
+    .feature {
+    flex: 1 1 calc(50% - 20px);
+    padding: 10px;
+    max-width: 250px
+    }
+
+    .code-editor {
+    display: grid;
+    background: hsl(0, 0%, 12%);
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    grid-template-columns: auto auto;
+    }
+
+    .code-editor img {
+    width: 100%;
+    margin-top: 10px;
+    grid-row: span 2;
+    align-self: center;
+    }
+
+
+</style>
